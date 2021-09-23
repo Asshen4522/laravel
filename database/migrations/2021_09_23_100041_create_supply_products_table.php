@@ -15,7 +15,8 @@ class CreateSupplyProductsTable extends Migration
     {
         Schema::create('supply_products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('supplier_id')->constrained('suppliers');
+            $table->foreignId('product_id')->constrained('products');
         });
     }
 
